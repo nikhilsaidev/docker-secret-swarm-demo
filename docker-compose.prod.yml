@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    image: docker_secrets_swarm_demo-app:latest
+    secrets:
+      - kafka.pem
+      - sample.pem
+    ports:
+      - "5000:5000"
+
+secrets:
+  kafka.pem:
+    external: true
+  sample.pem:
+    external: true
